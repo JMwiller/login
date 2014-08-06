@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>WeBee通行证</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body screen_capture_injected="true" ryt12042="1">
+	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#"><img src="images/logo1.png"></a>
+	    </div>
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<div class="personal-information">
+		
+		<div class="container form-container">
+			<div class="information-wrap row">
+				<div class="personal-head col-sm-3 col-xs-12 pull-right">
+					<img src="images/loginbg1.jpg" class="img-responsive">
+				</div>
+				<form class="col-sm-8 col-xs-12 setting" role="form">
+					
+					<ul class="nav nav-pills setting-nav" role="tablist">
+						  <li role="presentation" class="active"><a href="#">个人资料</a></li>
+						  <li role="presentation"><a href="#">修改密码</a></li>
+						  <li role="presentation"><a href="#">修改头像</a></li>
+					</ul>
+
+					<!-- /information container -->
+					<div class="information-form">
+						<div class="form-group col-xs-12 center-block">
+							<label for="username">*&nbsp;昵称:</label>
+							<input type="text" class="form-control " id="username" placeholder="哈根达C" name="username" value="哈根达C" required="" autofocus="">
+						</div>
+						<div class="form-group col-xs-12 center-block">
+							<label for="gender">性别:&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" checked="checked" name="Sex" value="male">男
+							<input type="radio" name="Sex" value="female">女
+							</label>
+						</div>
+						<div class="form-group col-xs-12 center-block">
+							<label for="qqaccount">QQ:</label>
+							<input type="text" class="form-control " id="qqaccount" placeholder="QQ账号" name="qqaccount" required="" autofocus="">
+						</div>
+						<div class="form-group col-xs-12 center-block">
+							<label for="phone">电话:</label>
+							<input type="text" class="form-control " id="phone" placeholder="电话号码:" name="phone" required="" autofocus="">
+						</div>
+						<div class="form-group col-xs-12 center-block">
+							<label for="phone">教育程度:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<select name="graduate">
+								<option value="doctoral">博士</option>
+								<option value="postgraduate">研究生</option>
+								<option value="university">大学生</option>
+								<option value="other">其他</option>
+							</select>
+						</div>
+					    
+					    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
+					    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
+					    </div>
+					    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
+					    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
+					    </div>
+					</div>
+					
+
+					<!-- /password change container -->
+				    <div class="password-form" style="display: none;">
+					    <div class="form-group col-xs-12 center-block">
+					    	<input type="password" class="form-control" id="input-password" name="password" placeholder="原密码" required="">
+					    </div>
+
+						<div class="form-group col-xs-12 center-block">
+					    	<input type="password" class="form-control" id="input-password" name="password" placeholder="新密码" required="">
+					    </div>
+					     <div class="form-group col-xs-12 center-block">
+					    	<input type="password" class="form-control" id="confirm-password" name="confirm" placeholder="重复新密码" required="">
+					    </div>
+					    
+					    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
+					    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
+					    </div>
+					    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
+					    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
+					    </div>
+					    
+				    </div>
+				</form>
+			</div>
+			
+		</div> <!-- container -->
+	</div> <!-- information -->
+	
+
+
+	<div class='foot'>
+		<div class='foot-logo'>
+			<img src="images/logo1.png" class="center-block"> 
+		</div>
+			<p class="text-center">
+				Copyright © 2014 广州蜂汇科技有限公司 <a href="http://www.miitbeian.gov.cn/" target="view_window">粤ICP备14004404</a> 代码统计  
+			</p>
+		</div>
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	  
+
+	<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div> -->
+
+	<!-- jQuery -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- personal js -->
+	<!-- <script src="js/login.js"></script> -->
+</body>
+</html>

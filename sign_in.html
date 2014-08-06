@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+    <meta name="author" content="">
+
+	<title>WeBee注册页</title>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body screen_capture_injected="true" ryt12042="1">
+	
+	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#"><img src="images/logo1.png"></a>
+	    </div>
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+
+
+
+	<div class="container sign-in-container">
+		<div class="sign-in-wrap row">
+			<form class="col-sm-12 col-xs-12 sign-in" role="form">
+				<h3 class="sign-in-heading text-center">注册WeBee通行证</h3>
+				<div class="form-group col-xs-12 center-block">
+					<input type="text" class="form-control" id="username" placeholder="用户名" name="username" required="" autofocus="">
+				</div>
+				<div class="form-group col-xs-12 center-block">
+					<input type="email" class="form-control" id="email" placeholder="邮箱" name="username" required="" autofocus="">
+				</div>
+			    <div class="form-group col-xs-12 center-block">
+			    	<input type="password" class="form-control" id="input-password" name="password" placeholder="密码" required="">
+			    </div>
+			     <div class="form-group col-xs-12 center-block">
+			    	<input type="password" class="form-control" id="confirm-password" name="confirm" placeholder="重复密码" required="">
+			    </div>
+			    <div class="form-group col-xs-12 center-block">
+			    	<input type="text" class="vcode form-control" id="vcode" name="vcode" placeholder="验证码" required="">
+			    	<div class="vcode-img" style="position: absolute;top: -15px;right: 15px;">
+			    		<img src="images/logo1.png" >
+			    		<a class="text-center" style="cursor:pointer; font-size:12px; display:block;">看不清！换一张？</a>
+			    	</div>
+			    </div>
+			    
+			<!--     <div class="checkbox">
+			      <label>
+			        <input type="checkbox" value="remember-me"> Remember me
+			      </label>
+			    </div> -->
+			    <p style="margin-left: 15px;">
+			    	同意<a href="">《WeBee账户使用协议》</a>
+					<label>
+			        	<input type="checkbox" name="comfirm-protocol">
+			        </label>	
+			    </p>
+			    <div class="form-group col-xs-12 center-block">
+			    	<button class="btn btn-lg btn-primary btn-block " id="sign-in" type="submit" disabled>注册</button>
+			    </div>
+
+			    
+		    	<p class="help text-right" style="clear: both; padding-right:1em;">已有账号，<a href="">直接登录</a></p>
+
+			    
+			</form>
+		</div>
+		
+	</div> <!-- /container -->
+
+	<div class='foot'>
+		<div class='foot-logo'>
+			<img src="images/logo1.png" class="center-block"> 
+		</div>
+			<p class="text-center">
+				Copyright © 2014 广州蜂汇科技有限公司 <a href="http://www.miitbeian.gov.cn/" target="view_window">粤ICP备14004404</a> 代码统计  
+			</p>
+		</div>
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	  
+
+	<div class="vimiumReset vimiumHUD" style="right: 150px; opacity: 0; display: none;"></div> -->
+
+	<!-- jQuery -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- personal js -->
+	<!-- <script src="js/login.js"></script> -->
+</body>
+</html>
