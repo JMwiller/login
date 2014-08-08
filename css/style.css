@@ -7,28 +7,40 @@ html, body {
 .navbar-header a {
 	padding: 0;
 }
-.second-menu {
-	margin-top: 4em;
-}
 .container {
 	height: 100%;
-	min-height: 616px;
+	min-height: 625px;
 	margin-bottom: -6em;
+	padding-left: 0;
+	padding-right: 0;
 }
 .login-wrap, .sign-in-wrap {
-	margin-top: 5em;
+	margin: 5em 0 0;
 }
 .login-wrap h3, .sign-in-wrap h3 {
-	padding: 0.5em 1.5em;
+	padding: 1em 0em;
+	margin: 0 -28px 0.5em;
+	background: #5E98FF;
+	-moz-border-top-left-radius: 15px;      /* Gecko browsers */
+    -webkit-border-top-left-radius: 15px;   /* Webkit browsers */
+    border-top-left-radius:15px;            /* W3C syntax */
+    -moz-border-top-right-radius: 15px;      /* Gecko browsers */
+    -webkit-border-top-right-radius: 15px;   /* Webkit browsers */
+    border-top-right-radius:15px;            /* W3C syntax */
 }
 
 .login, .sign-in {
 	border: solid #ccc 1px;
-	margin-left: 2em;
 	padding-left: 2em;
 	padding-right: 2em;
 }
-
+.setting, .login, .sign-in {
+	border: solid #ccc 1px;
+	background: #fff;
+	-moz-border-radius: 15px;      /* Gecko browsers */
+    -webkit-border-radius: 15px;   /* Webkit browsers */
+    border-radius:15px;            /* W3C syntax */
+}
 .login div, .sign-in div {
 	margin-left: 0;
 	margin-right: 0;
@@ -36,6 +48,10 @@ html, body {
 }
 .vcode {
 	width: 50%;
+}
+div.foot {
+	padding-bottom: 12px;
+	background: #ccc;
 }
 /*  sign in  */
 .sign-in-container{
@@ -46,21 +62,15 @@ html, body {
 }
 
 /*  personal information  */
-
-.form-container {
+div.information-wrap {
 	max-width: 800px;
-	margin:5em auto 0;
-}
-/*.form-container .col-sm-4 {
-	width: 32%;
-}*/
-.setting {
-	border: solid #ccc 1px;
+	margin: 5em auto 0;
 }
 .personal-head {
-	max-width: 550px;
-	margin-right: 2em;
-	margin-bottom: 3em;
+	margin: 0;
+	padding: 0;
+}
+.personal-head img{
 	border: solid #ECECEC 1px;
 	padding: 1em;
 	background: #DFDFDF;
@@ -68,4 +78,38 @@ html, body {
 .setting-nav {
 	margin: 0 -16px 1em;
 	background: #ccc;
+}
+ul#myTab {
+	margin:-1px -16px 1em;
+	padding-left: 0px;
+}
+ul#myTab>li:first-child>a {
+	-moz-border-radius: 15px 0px 0 0;      /* Gecko browsers */
+    -webkit-border-radius: 15px 0px 0 0;   /* Webkit browsers */
+    border-radius:15px 0px 0 0;            /* W3C syntax */
+}
+/* personal information ——> head */
+div.preview-container {
+	width: 300px;
+	height: 300px;
+	margin: 2em 2em 1em 1em;
+	background: #ccc;
+}
+div.preview-container img {
+	max-width: 300px;
+	margin: auto;
+}
+div.cuted-photo {
+	width: 100px;
+	height: 100px;
+	margin: 2em;
+	background: #ccc;
+}
+div.form-group .holder {
+	position: absolute;
+	top: 7px;
+	left: 28px;
+	color: #9E9E9E;
+	cursor: text;
+	font-weight: normal;
 }

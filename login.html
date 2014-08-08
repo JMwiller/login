@@ -12,6 +12,7 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,23 +35,34 @@
 
 	<div class="container">
 		<div class="login-wrap row">
-			<form class="pull-right col-sm-5 col-xs-12 login" role="form">
+			<img src="images/loginbg4.jpg" class="img-responsive col-sm-7 pull-left" alt="introduce">
+			<form class="pull-right col-sm-5 col-xs-12 login" role="form" novalidate>
 				<h3 class="login-heading text-center">WeBee通行证账号</h3>
 				<div class="form-group col-xs-12 center-block">
-					<input type="text" class="form-control" id="username" placeholder="用户名/邮箱" name="username" required="" autofocus="">
+					<label for="username" class="holder">
+						用户名/邮箱	
+					</label>
+					<input type="text" class="form-control" id="username" placeholder="用户名/邮箱" name="username" required="" autofocus="" alt="邮箱或(20位数字或字母)用户名">
 				</div>
+
 			    <div class="form-group col-xs-12 center-block">
-			    	<input type="password" class="form-control" id="input-password" name="password" placeholder="密码" required="">
+			    	<label for="passwprd" class="holder">
+						密码	
+					</label>
+			    	<input type="password" class="form-control" id="password" name="password" placeholder="密码" required="" alt='3~20位密码'>
 			    </div>
 			    
-			    <div class="form-group col-xs-12 center-block">
-			    	<input type="text" class="vcode form-control" id="vcode" name="vcode" placeholder="验证码" required="">
-			    	<div class="vcode-img" style="position: absolute;top: -15px;right: 15px;">
-			    		<img src="images/logo1.png" class="img-responsive" >
-			    		<a class="text-center" style="cursor:pointer; font-size:12px; display:block;">看不清！换一张？</a>
-			    	</div>
+			    <div class="form-group col-xs-12 center-block vcode">
+			    	<label for="vcode" class="holder" >
+						验证码	
+					</label>
+			    	<input type="text" class="form-control" id="vcode" name="vcode" placeholder="验证码" required="" alt='4位验证码'>
+			    	
 			    </div>
-			    
+			    <div class="vcode-img" style="position: absolute;top: 166px;right: 40px;">
+		    		<img src="images/logo1.png" class="img-responsive" >
+		    		<a class="text-center" style="cursor:pointer; font-size:12px; display:block;">看不清！换一张？</a>
+		    	</div>
 			<!--     <div class="checkbox">
 			      <label>
 			        <input type="checkbox" value="remember-me"> Remember me
@@ -67,7 +79,7 @@
 
 			    <input type="hidden" value="" name="code">
 			</form>
-			<img src="images/loginbg4.jpg" class="img-responsive col-sm-5 hidden-xs pull-right" alt="introduce">
+			
 		</div>
 		
 	</div> <!-- /container -->
@@ -93,6 +105,6 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <!-- personal js -->
-	<!-- <script src="js/login.js"></script> -->
+	<script src="js/login.js"></script>
 </body>
 </html>

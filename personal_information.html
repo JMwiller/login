@@ -17,6 +17,13 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+	<!-- 头像修改 -->
+	<link rel="stylesheet" type="text/css" href="js/imgareaselect/css/imgareaselect-default.css">
+
+
+    <script type="text/javascript" src="fullAvatarEditor/scripts/swfobject.js"></script>
+	<script type="text/javascript" src="fullAvatarEditor/scripts/fullAvatarEditor.js"></script>
 </head>
 <body screen_capture_injected="true" ryt12042="1">
 	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
@@ -28,86 +35,122 @@
 	  </div><!-- /.container-fluid -->
 	</nav>
 
-	<div class="personal-information">
 		
-		<div class="container form-container">
-			<div class="information-wrap row">
-				<div class="personal-head col-sm-3 col-xs-12 pull-right">
-					<img src="images/loginbg1.jpg" class="img-responsive">
-				</div>
-				<form class="col-sm-8 col-xs-12 setting" role="form">
-					
-					<ul class="nav nav-pills setting-nav" role="tablist">
-						  <li role="presentation" class="active"><a href="#">个人资料</a></li>
-						  <li role="presentation"><a href="#">修改密码</a></li>
-						  <li role="presentation"><a href="#">修改头像</a></li>
-					</ul>
-
-					<!-- /information container -->
-					<div class="information-form">
-						<div class="form-group col-xs-12 center-block">
-							<label for="username">*&nbsp;昵称:</label>
-							<input type="text" class="form-control " id="username" placeholder="哈根达C" name="username" value="哈根达C" required="" autofocus="">
-						</div>
-						<div class="form-group col-xs-12 center-block">
-							<label for="gender">性别:&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="radio" checked="checked" name="Sex" value="male">男
-							<input type="radio" name="Sex" value="female">女
-							</label>
-						</div>
-						<div class="form-group col-xs-12 center-block">
-							<label for="qqaccount">QQ:</label>
-							<input type="text" class="form-control " id="qqaccount" placeholder="QQ账号" name="qqaccount" required="" autofocus="">
-						</div>
-						<div class="form-group col-xs-12 center-block">
-							<label for="phone">电话:</label>
-							<input type="text" class="form-control " id="phone" placeholder="电话号码:" name="phone" required="" autofocus="">
-						</div>
-						<div class="form-group col-xs-12 center-block">
-							<label for="phone">教育程度:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-							<select name="graduate">
-								<option value="doctoral">博士</option>
-								<option value="postgraduate">研究生</option>
-								<option value="university">大学生</option>
-								<option value="other">其他</option>
-							</select>
-						</div>
-					    
-					    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
-					    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
-					    </div>
-					    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
-					    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
-					    </div>
-					</div>
-					
-
-					<!-- /password change container -->
-				    <div class="password-form" style="display: none;">
-					    <div class="form-group col-xs-12 center-block">
-					    	<input type="password" class="form-control" id="input-password" name="password" placeholder="原密码" required="">
-					    </div>
-
-						<div class="form-group col-xs-12 center-block">
-					    	<input type="password" class="form-control" id="input-password" name="password" placeholder="新密码" required="">
-					    </div>
-					     <div class="form-group col-xs-12 center-block">
-					    	<input type="password" class="form-control" id="confirm-password" name="confirm" placeholder="重复新密码" required="">
-					    </div>
-					    
-					    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
-					    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
-					    </div>
-					    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
-					    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
-					    </div>
-					    
-				    </div>
-				</form>
-			</div>
+	<div class="container form-container">
+		<div class="information-wrap row">
 			
-		</div> <!-- container -->
-	</div> <!-- information -->
+			<form class="col-sm-12 col-xs-12 setting" role="form">
+				<ul class="nav nav-tabs nav-tabs" role="tablist" id="myTab">
+				  <li class="active"><a href="#information" role="tab" data-toggle="tab">个人资料</a></li>
+				  <li><a href="#password" role="tab" data-toggle="tab">修改密码</a></li>
+				  <li><a href="#head" role="tab" data-toggle="tab">修改头像</a></li>
+				</ul>
+
+				<div class="tab-content">
+				  <div class="tab-pane active" id="information">
+				  		<!-- 个人资料 -->
+						<div class="information-form">
+							<div class="personal-head col-sm-3 col-xs-12 pull-right">
+								<img src="images/loginbg3.jpg" class="img-responsive">
+							</div>
+							<div class="form-group col-xs-12 col-sm-8 center-block">
+								<label for="username">*&nbsp;昵称:</label>
+								<input type="text" class="form-control " id="username" placeholder="哈根达C" name="username" value="哈根达C" required="" autofocus="">
+							</div>
+							<div class="form-group col-xs-12 col-sm-8 center-block">
+								<label for="gender">性别:&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio" checked="checked" name="gender" value="male">男
+								<input type="radio" name="gender" value="female">女
+								</label>
+							</div>
+							<div class="form-group col-xs-12 col-sm-8 center-block">
+								<label for="qqaccount">QQ:</label>
+								<input type="text" class="form-control " id="qqaccount" placeholder="QQ账号" name="qqaccount" required="" autofocus="">
+							</div>
+							<div class="form-group col-xs-12 col-sm-8 center-block">
+								<label for="phone">电话:</label>
+								<input type="text" class="form-control " id="phone" placeholder="电话号码:" name="phone" required="" autofocus="">
+							</div>
+							<div class="form-group col-xs-12 col-sm-12 center-block">
+								<label for="phone">教育程度:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+								<select name="graduate">
+									<option value="doctoral">博士</option>
+									<option value="postgraduate">研究生</option>
+									<option value="university">大学生</option>
+									<option value="other">其他</option>
+								</select>
+							</div>
+						    <div class="row col-sm-8">
+							    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
+							    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
+							    </div>
+							    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
+							    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
+							    </div>
+						    </div>
+						    
+						</div>
+				  </div>
+
+				  <div class="tab-pane" id="password">
+				  			<!-- 修改密码 -->
+					    <div class="password-form">
+						    <div class="form-group col-xs-12 center-block">
+						    	<input type="password" class="form-control" id="input-password" name="password" placeholder="原密码" required="">
+						    </div>
+
+							<div class="form-group col-xs-12 center-block">
+						    	<input type="password" class="form-control" id="input-password" name="password" placeholder="新密码" required="">
+						    </div>
+						     <div class="form-group col-xs-12 center-block">
+						    	<input type="password" class="form-control" id="confirm-password" name="confirm" placeholder="重复新密码" required="">
+						    </div>
+						    
+						    <div class="form-group col-xs-12 col-sm-4 pull-left center-block">
+						    	<button class="btn btn-lg btn-primary btn-block " id="ensure" type="submit">确认</button>
+						    </div>
+						    <div class="form-group col-xs-12 col-sm-4 pull-right center-block">
+						    	<button class="btn btn-lg btn-primary btn-block " id="cancel" type="submit">取消</button>
+						    </div>
+						    
+					    </div>
+				  </div>
+
+				  <div class="tab-pane" id="head">
+					    <!-- 修改头像 -->
+						<div class="personal-head-form">
+							
+							<!-- flash插件 -->
+<!-- 							<div style="width:630px;height:395px;margin: 0 auto;">
+						  		<div id="swfContainer"></div>
+						  		<p style="text-align:center"><button type="button" id="upload">自定义上传按钮</button></p>
+						  	</div> -->
+							<!--  -->
+
+							<div class="preview-container pull-left" >
+								<!-- <div></div> -->
+								<img src="images/loginbg1.jpg" id="preview">
+							</div>
+							<div class="cuted-photo pull-left">
+								
+							</div>
+							<div class="barner" style="clear:both;"></div>
+							<div class="form-group col-xs-4 col-sm-4 pull-left center-block">
+								<button class="btn btn-lg btn-primary btn-block " id="uploding" type="submit">上传图片</button>
+							</div>
+							<div class="form-group col-xs-4 col-sm-4 pull-left center-block">
+								<button class="btn btn-lg btn-primary btn-block " id="photograph" type="submit">立刻拍照</button>
+							</div>
+						</div>
+				  	</div>
+
+					
+
+				</div>
+			</form>
+		</div>
+
+	</div> <!-- container -->
 	
 
 
@@ -133,5 +176,65 @@
 
     <!-- personal js -->
 	<!-- <script src="js/login.js"></script> -->
+	
+
+	<!-- 头像上传测试 -->
+						<script src="js/imgareaselect/scripts/jquery.imgareaselect.pack.js"></script>
+						
+						<script type="text/javascript">
+							$(function(){
+								$('#preview').imgAreaSelect({ aspectRatio: '5:3', handles: true });
+							});
+
+						</script>
+
+
+
+<!-- flash 插件 -->
+<!--	<script type="text/javascript">
+            swfobject.addDomLoadEvent(function () {
+                var swf = new fullAvatarEditor("swfContainer", {
+                        id: 'swf',
+                        upload_url: '',//fullAvatarEditor/Upload.php',
+                        src_url: "samplePictures/Default.png",
+                        src_upload:2
+                    }, function (msg) {
+                        switch(msg.code)
+                        {
+                            case 1 : alert("页面成功加载了组件！");break;
+                            case 2 : alert("已成功加载默认指定的图片到编辑面板。");break;
+                            case 3 :
+                                if(msg.type == 0)
+                                {
+                                    alert("摄像头已准备就绪且用户已允许使用。");
+                                }
+                                else if(msg.type == 1)
+                                {
+                                    alert("摄像头已准备就绪但用户未允许使用！");
+                                }
+                                else
+                                {
+                                    alert("摄像头被占用！");
+                                }
+                            break;
+                            case 5 : 
+                                if(msg.type == 0)
+                                {
+                                    if(msg.content.sourceUrl)
+                                    {
+                                        alert("原图片已成功保存至服务器，url为：\n" +　msg.content.sourceUrl);
+                                    }
+                                    alert("头像已成功保存至服务器，url为：\n" + msg.content.avatarUrls.join("\n"));
+                                }
+                            break;
+                        }
+                    }
+                );
+                document.getElementById("upload").onclick=function(){
+                    swf.call("upload");
+                };
+            });
+        </script>
+    -->  
 </body>
 </html>
