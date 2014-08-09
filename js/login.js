@@ -31,21 +31,6 @@ $(function(){
 		}
 	}
 
-
-	// function regExpTest( patten, tester) {
-	// 	// tester.on('blur', function () {
- //      		var testValue = tester.val();
- //      		if( patten.test(testValue) ) {
- //      			// console.log('a');
-	// 			return true;
-	// 		} else {
-	// 			// console.log('b');
-	// 			return false;
-	// 			// event.preventDefault();
-	// 		}
- //    	// });
-
-	// }
 	function regExpTest( patten, tester) {
   		var testValue = tester.val();
   		return patten.test(testValue);
@@ -53,9 +38,10 @@ $(function(){
 
 	function formTest() {
 
-		// var emailPatten = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
 
-		var usernamePatten = new RegExp(/^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|([A-Za-z0-9]{3,20})$/);
+		var emailPatten = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
+		var usernamePatten = new RegExp(/^[A-Za-z0-9]{3,20}$/);
+		var loginPatten = new RegExp(/^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|([A-Za-z0-9]{3,20})$/);
 		var passwordPatten = new RegExp(/^[A-Za-z0-9]{3,20}$/);
 		var vcodePatten = new RegExp(/^[A-Za-z0-9]{4}$/);
 		var patten = null;
@@ -63,6 +49,9 @@ $(function(){
 		function changeInputState(){
 			// 正则匹配
 			switch ( $(this).attr('name') ) {
+				case 'login' :
+					patten = loginPatten;
+					break;
 				case 'username' :
 					patten = usernamePatten;
 					break;
@@ -115,7 +104,7 @@ $(function(){
 			}
 		}
 
-		$('#username').on('blur', changeInputState);
+		$('#login').on('blur', changeInputState);
 		$('#password').on('blur', changeInputState);
 		$('#vcode').on('blur', changeInputState);
 

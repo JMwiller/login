@@ -14,6 +14,9 @@ html, body {
 	padding-left: 0;
 	padding-right: 0;
 }
+.container .img-responsive {
+	margin-bottom: 10px;
+}
 .login-wrap, .sign-in-wrap {
 	margin: 5em 0 0;
 }
@@ -90,14 +93,11 @@ ul#myTab>li:first-child>a {
 }
 /* personal information ——> head */
 div.preview-container {
-	width: 300px;
-	height: 300px;
 	margin: 2em 2em 1em 1em;
-	background: #ccc;
 }
-div.preview-container img {
-	max-width: 300px;
-	margin: auto;
+div.preview-container #preview {
+	width: 400px;
+	height: 300px;
 }
 div.cuted-photo {
 	width: 100px;

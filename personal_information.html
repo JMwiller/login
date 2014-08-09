@@ -22,8 +22,6 @@
 	<link rel="stylesheet" type="text/css" href="js/imgareaselect/css/imgareaselect-default.css">
 
 
-    <script type="text/javascript" src="fullAvatarEditor/scripts/swfobject.js"></script>
-	<script type="text/javascript" src="fullAvatarEditor/scripts/fullAvatarEditor.js"></script>
 </head>
 <body screen_capture_injected="true" ryt12042="1">
 	<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
@@ -126,14 +124,15 @@
 						  		<p style="text-align:center"><button type="button" id="upload">自定义上传按钮</button></p>
 						  	</div> -->
 							<!--  -->
+							<div class="form-group col-xs-12 center-block">
+						    	<input type="file" class="form-control" id="uploadfile" name="uploadfile">
+						    </div>
 
-							<div class="preview-container pull-left" >
+							<div class="preview-container pull-left">
 								<!-- <div></div> -->
-								<img src="images/loginbg1.jpg" id="preview">
+								<img src="images/loginbg3.jpg" id="preview">
 							</div>
-							<div class="cuted-photo pull-left">
-								
-							</div>
+
 							<div class="barner" style="clear:both;"></div>
 							<div class="form-group col-xs-4 col-sm-4 pull-left center-block">
 								<button class="btn btn-lg btn-primary btn-block " id="uploding" type="submit">上传图片</button>
@@ -163,6 +162,9 @@
 			</p>
 		</div>
 
+
+
+
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	  
@@ -178,13 +180,94 @@
 	<!-- <script src="js/login.js"></script> -->
 	
 
+	<!-- 设定最后一个标签页显示 -->
+	<script>
+	  $(function () {
+	    $('#myTab a:last').tab('show')
+	  })
+	</script>
+
+
 	<!-- 头像上传测试 -->
 						<script src="js/imgareaselect/scripts/jquery.imgareaselect.pack.js"></script>
 						
 						<script type="text/javascript">
 							$(function(){
-								$('#preview').imgAreaSelect({ aspectRatio: '5:3', handles: true });
+								$('#myTab a').on('click', function(){
+									$('#preview').imgAreaSelect({hide: true});
+								});
+								// $('#preview').imgAreaSelect({ aspectRatio: '5:3', handles: true });
+
+
+								function preview(img, selection) {
+								    var scaleX = 100 / (selection.width || 1);
+								    var scaleY = 100 / (selection.height || 1);
+								  
+								    $('#preview + div > img').css({
+								        width: Math.round(scaleX * 400) + 'px',
+								        height: Math.round(scaleY * 300) + 'px',
+								        marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
+								        marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
+								    });
+								}
+
+								$('<div><img src="images/loginbg3.jpg" style="position: relative;" /><div>')
+							        .css({
+							            float: 'right',
+							            position: 'relative',
+							            overflow: 'hidden',
+							            width: '100px',
+							            height: '100px',
+							            margin: '1em',
+							        })
+							        .insertAfter($('#preview'));
+
+							    $('#preview').imgAreaSelect({ aspectRatio: '1:1', onSelectChange: preview });
 							});
+
+
+							document.getElementById('uploadfile').onchange = function(evt) {  
+  
+							    // 如果浏览器不支持FileReader，则不处理  
+							  
+							    if (!window.FileReader) return;  
+							  
+							    var files = evt.target.files;  
+							  
+							    for (var i = 0, f; f = files[i]; i++) {  
+							  
+							        if (!f.type.match('image.*')) {  
+							  
+							            continue;  
+							  
+							        }  
+							  
+							  
+							        var reader = new FileReader();  
+							  
+							        reader.onload = (function(theFile) {  
+							  
+							            return function(e) {  
+							  
+							                // img 元素  
+							  
+							                document.getElementById('preview').src = e.target.result;
+							                $('#preview + div > img').attr('src', e.target.result);  
+							  
+							            };  
+							  
+							        })(f);  
+							  
+							  
+							        reader.readAsDataURL(f);  
+							  
+							    }  
+							  
+							}  
+							
+
+
+
 
 						</script>
 
