@@ -20,6 +20,11 @@
 
 	<!-- 头像修改 -->
 	<link rel="stylesheet" type="text/css" href="js/imgareaselect/css/imgareaselect-default.css">
+	
+	<!--引入CSS-->
+	<link rel="stylesheet" type="text/css" href="dist/webuploader.css">
+
+	
 
 
 </head>
@@ -124,22 +129,51 @@
 						  		<p style="text-align:center"><button type="button" id="upload">自定义上传按钮</button></p>
 						  	</div> -->
 							<!--  -->
-							<div class="form-group col-xs-12 center-block">
-						    	<input type="file" class="form-control" id="uploadfile" name="uploadfile">
-						    </div>
+							<!-- <div class="form-group col-xs-12 center-block"> -->
 
-							<div class="preview-container pull-left">
+								<!-- html5使用 -->
+						    	<!-- <input type="file" class="form-control" id="uploadfile" name="uploadfile"> -->
+						    <!-- </div> -->
+
+						    <!-- <div id="uploader"> -->
+							    <!--用来存放item-->
+							    <!-- <div id="fileList" class="uploader-list"></div>
+							    <div id="filePicker">选择图片</div>
+							</div> -->
+
+							<div class="preview-container pull-left" id="preview">
 								<!-- <div></div> -->
-								<img src="images/loginbg3.jpg" id="preview">
+								<img src="images/loginbg3.jpg">
+							</div>
+							<div id="cutPreview">
+								<img src="images/loginbg3.jpg" />
 							</div>
 
+							<div class="cuted-photo-container pull-left" id="cuted-photo"></div>
+
 							<div class="barner" style="clear:both;"></div>
-							<div class="form-group col-xs-4 col-sm-4 pull-left center-block">
+
+
+							<div id="uploader">
+								<div class="btns">
+							        <div id="filePicker">选择图片</div>
+							        <button id="ctlBtn" class="btn btn-default">开始上传</button>
+							    </div>							
+	
+								<!-- <div id="fileList" class="uploader-list" style=""></div>
+								<div id="filePicker" class="form-group col-xs-4 col-sm-4 pull-left center-block">
+									 上传图片
+								</div> -->
+								<!-- <div class="form-group col-xs-4 col-sm-4 pull-left center-block">
+									<button class="btn btn-lg btn-primary btn-block " id="photograph" type="submit">立刻拍照</button>
+								</div> -->
+							</div>
+							<!-- <div class="form-group col-xs-4 col-sm-4 pull-left center-block">
 								<button class="btn btn-lg btn-primary btn-block " id="uploding" type="submit">上传图片</button>
 							</div>
 							<div class="form-group col-xs-4 col-sm-4 pull-left center-block">
 								<button class="btn btn-lg btn-primary btn-block " id="photograph" type="submit">立刻拍照</button>
-							</div>
+							</div> -->
 						</div>
 				  	</div>
 
@@ -178,7 +212,6 @@
 
     <!-- personal js -->
 	<!-- <script src="js/login.js"></script> -->
-	
 
 	<!-- 设定最后一个标签页显示 -->
 	<script>
@@ -189,87 +222,227 @@
 
 
 	<!-- 头像上传测试 -->
-						<script src="js/imgareaselect/scripts/jquery.imgareaselect.pack.js"></script>
+	<script src="js/imgareaselect/scripts/jquery.imgareaselect.pack.js"></script>
+
+	<!--引入webUpload JS-->
+	<script type="text/javascript" src="dist/webuploader.js"></script>
 						
-						<script type="text/javascript">
-							$(function(){
-								$('#myTab a').on('click', function(){
-									$('#preview').imgAreaSelect({hide: true});
-								});
-								// $('#preview').imgAreaSelect({ aspectRatio: '5:3', handles: true });
+<script type="text/javascript">
+	$(function(){
+		$('#myTab a').on('click', function(){
+			$('#preview').imgAreaSelect({hide: true});
+		});
+		// $('#preview').imgAreaSelect({ aspectRatio: '5:3', handles: true });
 
 
-								function preview(img, selection) {
-								    var scaleX = 100 / (selection.width || 1);
-								    var scaleY = 100 / (selection.height || 1);
-								  
-								    $('#preview + div > img').css({
-								        width: Math.round(scaleX * 400) + 'px',
-								        height: Math.round(scaleY * 300) + 'px',
-								        marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
-								        marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
-								    });
-								}
+		function preview(img, selection) {
+		    var scaleX = 100 / (selection.width || 1);
+		    var scaleY = 100 / (selection.height || 1);
+		  
+		    $('#preview + div > img').css({
+		        width: Math.round(scaleX * 300) + 'px',
+		        height: Math.round(scaleY * 300) + 'px',
+		        marginLeft: '-' + Math.round(scaleX * selection.x1) + 'px',
+		        marginTop: '-' + Math.round(scaleY * selection.y1) + 'px'
+		    });
+		}
 
-								$('<div><img src="images/loginbg3.jpg" style="position: relative;" /><div>')
-							        .css({
-							            float: 'right',
-							            position: 'relative',
-							            overflow: 'hidden',
-							            width: '100px',
-							            height: '100px',
-							            margin: '1em',
-							        })
-							        .insertAfter($('#preview'));
-
-							    $('#preview').imgAreaSelect({ aspectRatio: '1:1', onSelectChange: preview });
-							});
+	    $('#preview').imgAreaSelect({ aspectRatio: '1:1', onSelectChange: preview });
 
 
-							document.getElementById('uploadfile').onchange = function(evt) {  
-  
-							    // 如果浏览器不支持FileReader，则不处理  
-							  
-							    if (!window.FileReader) return;  
-							  
-							    var files = evt.target.files;  
-							  
-							    for (var i = 0, f; f = files[i]; i++) {  
-							  
-							        if (!f.type.match('image.*')) {  
-							  
-							            continue;  
-							  
-							        }  
-							  
-							  
-							        var reader = new FileReader();  
-							  
-							        reader.onload = (function(theFile) {  
-							  
-							            return function(e) {  
-							  
-							                // img 元素  
-							  
-							                document.getElementById('preview').src = e.target.result;
-							                $('#preview + div > img').attr('src', e.target.result);  
-							  
-							            };  
-							  
-							        })(f);  
-							  
-							  
-							        reader.readAsDataURL(f);  
-							  
-							    }  
-							  
-							}  
-							
+	});
+	
+	
+	// $('#confirm-upload').on('click', function(){
+	// 	$('#uploadfile').uploadifyUpload();
+	// });
 
+	// html5 实现图片上传，兼容性无法保证
+
+	// document.getElementById('uploadfile').onchange = function(evt) {  
+
+	//     // 如果浏览器不支持FileReader，则不处理  
+	  
+	//     if (!window.FileReader) return;  
+	  
+	//     var files = evt.target.files;  
+	  
+	//     for (var i = 0, f; f = files[i]; i++) {  
+	  
+	//         if (!f.type.match('image.*')) {  
+	  
+	//             continue;  
+	  
+	//         }  
+	  
+	  
+	//         var reader = new FileReader();  
+	  
+	//         reader.onload = (function(theFile) {  
+	  
+	//             return function(e) {  
+	  
+	//                 // img 元素  
+	  
+	//                 document.getElementById('preview').src = e.target.result;
+	//                 // $('#preview + div > img').attr('src', e.target.result);  
+	//                 document.getElementById('cut').src = e.target.result;
+	  
+	//             };  
+	  
+	//         })(f);  
+	  
+	  
+	//         reader.readAsDataURL(f);  
+	  
+	//     }  
+	  
+	// }  
+	
 
 
 
-						</script>
+	// webUploader
+	// 图片上传
+	jQuery(function() {
+	    var $ = jQuery,
+	    	$preContain = $('#preview'),
+	    	$cutPreview = $('#cutPreview'),
+	    	$btn = $('#ctlBtn'),
+        	state = 'pending',
+	        // 优化retina, 在retina下这个值是2
+	        ratio = window.devicePixelRatio || 1,
+
+	        // 缩略图大小
+	        thumbnailWidth = 100 * ratio,
+	        thumbnailHeight = 100 * ratio,
+
+	        // Web Uploader实例
+	        uploader;
+
+	    // 初始化Web Uploader
+	    uploader = WebUploader.create({
+
+	        // 自动上传。
+	        auto: false,
+
+	        // swf文件路径
+	        swf: '/dist/Uploader.swf',
+
+	        // 文件接收服务端。
+	        server: 'http://webuploader.duapp.com/server/fileupload.php',
+
+	        // 选择文件的按钮。可选。
+	        // 内部根据当前运行时创建，可能是input元素，也可能是flash.
+	        pick: '#filePicker',
+
+	        // 只允许选择文件，可选。
+	        accept: {
+	            title: 'Images',
+	            extensions: 'gif,jpg,jpeg,bmp,png',
+	            mimeTypes: 'image/*'
+	        }
+	    });
+
+	    // 当有文件添加进来的时候
+	    uploader.on( 'fileQueued', function( file ) {
+	    		uploader.reset();
+	    		
+	            var $img = $preContain.find('img'),
+	            	$cutImg = $cutPreview.find('img');
+
+	        // 创建缩略图
+	        uploader.makeThumb( file, function( error, src ) {
+	            if ( error ) {
+	                $img.replaceWith('<span>不能预览</span>');
+	                return;
+	            }
+
+	            $cutImg.attr( 'src', src );
+	            $img.attr( 'src', src );
+	        }, thumbnailWidth, thumbnailHeight );
+	    });
+
+	    // 文件上传过程中创建进度条实时显示。
+	    uploader.on( 'uploadProgress', function( file, percentage ) {
+	        var $li = $( '#'+file.id ),
+	            $percent = $li.find('.progress span');
+
+	        // 避免重复创建
+	        if ( !$percent.length ) {
+	            $percent = $('<p class="progress"><span></span></p>')
+	                    .appendTo( $li )
+	                    .find('span');
+	        }
+
+	        $percent.css( 'width', percentage * 100 + '%' );
+	    });
+
+	    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+	    uploader.on( 'uploadSuccess', function( file ) {
+	        $( '#'+file.id ).addClass('upload-state-done');
+	    });
+
+	    // 文件上传失败，现实上传出错。
+	    uploader.on( 'uploadError', function( file ) {
+	        var $li = $( '#'+file.id ),
+	            $error = $li.find('div.error');
+
+	        // 避免重复创建
+	        if ( !$error.length ) {
+	            $error = $('<div class="error"></div>').appendTo( $li );
+	        }
+
+	        $error.text('上传失败');
+	    });
+
+	    // 完成上传完了，成功或者失败，先删除进度条。
+	    uploader.on( 'uploadComplete', function( file ) {
+	        $( '#'+file.id ).find('.progress').remove();
+	    });
+
+
+	    uploader.on( 'all', function( type ) {
+	        if ( type === 'startUpload' ) {
+	            state = 'uploading';
+	        } else if ( type === 'stopUpload' ) {
+	            state = 'paused';
+	        } else if ( type === 'uploadFinished' ) {
+	            state = 'done';
+	        }
+
+	        if ( state === 'uploading' ) {
+	            $btn.text('暂停上传');
+	        } else {
+	            $btn.text('开始上传');
+	        }
+	    });
+	    $btn.on( 'click', function() {
+	        if ( state === 'uploading' ) {
+	            uploader.stop();
+	        } else {
+	            uploader.upload();
+	        }
+	    });
+
+	    $('#filePicker>div').removeClass('webuploader-pick')
+	    					.addClass('btn btn-lg btn-primary')
+	    					.css({
+	    						float: 'left',
+	    						marginLeft: '15px',
+	    						marginRight: '15px',
+	    					});
+	    $btn.removeClass('btn-default')
+	    	.addClass('btn-lg btn-primary')
+	    	.css({
+	    		position: 'relative',
+	    		left: '50%',
+	    		marginLeft: '-40%',
+	    	});
+	});
+	
+
+</script>
 
 
 

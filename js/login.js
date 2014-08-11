@@ -39,21 +39,24 @@ $(function(){
 	function formTest() {
 
 
-		var emailPatten = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
-		var usernamePatten = new RegExp(/^[A-Za-z0-9]{3,20}$/);
-		var loginPatten = new RegExp(/^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|([A-Za-z0-9]{3,20})$/);
-		var passwordPatten = new RegExp(/^[A-Za-z0-9]{3,20}$/);
-		var vcodePatten = new RegExp(/^[A-Za-z0-9]{4}$/);
+		var emailPatten = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+		var accountPatten = /^[A-Za-z0-9]{3,20}$/;
+		var usernamePatten = /^(\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)|([A-Za-z0-9]{3,20})$/;
+		var passwordPatten = /^[A-Za-z0-9]{3,20}$/;
+		var vcodePatten = /^[A-Za-z0-9]{4}$/;
 		var patten = null;
 
 		function changeInputState(){
 			// 正则匹配
 			switch ( $(this).attr('name') ) {
-				case 'login' :
-					patten = loginPatten;
+				case 'email' :
+					patten = emailPatten;
 					break;
 				case 'username' :
 					patten = usernamePatten;
+					break;
+				case 'account' :
+					patten = accountPatten;
 					break;
 				case 'password' :
 					patten = passwordPatten;
@@ -104,23 +107,61 @@ $(function(){
 			}
 		}
 
-		$('#login').on('blur', changeInputState);
+
+		// 绑定验证input
+		$('#account').on('blur', changeInputState);
 		$('#password').on('blur', changeInputState);
 		$('#vcode').on('blur', changeInputState);
 
-
+		$('#username').on('blur', changeInputState);
 		$('#email').on('blur', changeInputState);
-		$('#input-password').on('blur', changeInputState);
+		$('#new-password').on('blur', changeInputState);
 		$('#confirm-password').on('blur', changeInputState);
 	}
 
-	
-// 	function formConfirm() {
-// 		console.log(isEmail);
+	function comfirmCheck() {
 		
-// 	}
-formTest();
+		$('#login').on('click', function(event){
+			var e = event || window.event;
+			var isFormed = ( $('#account').val() || $('#password').val() || $('#vcode').val() );
+			
+			$(this).parent().find('.login-alert').hide();
+			if (isFormed) {
+				// 调用ajax上传
+				e.preventDefault();
+			} else {
+				
+				$(this).parent().find('.login-alert').show();
+				e.preventDefault();
+				return false;
+			}
+		});
+		
+		$('#sign-in').on('click', function(event){
+			var e = event || window.event;
+			var isFormed = ( $('#username').val() || $('#email').val() || $('#confirm-password').val() || $('#new-password').val() || $('#vcode').val() );
+			
+			$(this).parent().find('.login-alert').hide();
+			if( $('#new-password').val() != $('#confirm-password').val() ) 
+			{
+				$(this).parent().find('.login-alert').show();
+				$(this).parent().find('.login-alert').text('请输入相同密码！');
+			}
+			if (isFormed) {
+				// 调用ajax上传
+				e.preventDefault();
+			} else {
+				$(this).parent().find('.login-alert').show();
+				$(this).parent().find('.login-alert').text('请完整填写！');
+				
+				e.preventDefault();
+				return false;
+			}
+		});
+	}	
 
+formTest();
+comfirmCheck();
 
 	setHolder();
 });

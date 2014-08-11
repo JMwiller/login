@@ -14,9 +14,6 @@ html, body {
 	padding-left: 0;
 	padding-right: 0;
 }
-.container .img-responsive {
-	margin-bottom: 10px;
-}
 .login-wrap, .sign-in-wrap {
 	margin: 5em 0 0;
 }
@@ -92,13 +89,26 @@ ul#myTab>li:first-child>a {
     border-radius:15px 0px 0 0;            /* W3C syntax */
 }
 /* personal information ——> head */
+.setting {
+	padding-bottom: 1em;
+}
 div.preview-container {
 	margin: 2em 2em 1em 1em;
 }
-div.preview-container #preview {
-	width: 400px;
+div.preview-container img {
+	width: 300px;
 	height: 300px;
 }
+div#cutPreview {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: 1em;
+    border: solid #ccc 5px;
+}
+
 div.cuted-photo {
 	width: 100px;
 	height: 100px;
