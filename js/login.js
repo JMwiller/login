@@ -1,5 +1,7 @@
 $(function(){
-	
+	$('#login').on('click', function(){
+		location.href = 'personal_information.html';
+	});
 	function hasSupport(properties, operator) {
 	  return properties in document.createElement(operator);
 	}
